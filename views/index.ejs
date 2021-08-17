@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+</head>
+<body>
+	<section class="home-section">
+		<div class="container text-center">
+			<% if(name) { %>
+				<h1 class="mt-3">Xush kelibsiz, name h1>
+			<%} else { %>
+				<h1 class="mt-3">Xush kelibsiz, mehmon h1>
+			<%}%>	
+						<div class="mt-3">
+				<a href="/login" class="btn btn-primary">Login</a>
+			</div>
+			<div class="mt-3">
+				<a href="/signup" class="btn btn-primary">Sign Up</a>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
