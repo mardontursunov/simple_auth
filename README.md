@@ -1,1 +1,1 @@
-hello world
+Hi guys! Now I'm practicing with nodeJS and Express.JS. This repo is simple authentication which built with nodeJS and Express.JS
