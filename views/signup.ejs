@@ -5,24 +5,23 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Sign up</title>
 	<link rel="stylesheet" href="./css/style.css">
-	<link rel="stylesheet" href="./css/bootstrap.min.css">
 </head>
 <body>
-	<section class="login-section vh-100 d-flex align-items-center justify-content-center">
-		<div class="container vh-100 d-flex justify-content-center align-items-center">
-			<form action="/signup" class="d-flex flex-column" method="POST"  >
+	<section>
+		<div>
+			<form action="/signup" method="POST">
 				<h2>Sign up</h2> 
 				<% if(error.length){%>
-					<div class="alert alert-danger"><%= error %></div>
+					<div><%= error %></div>
 				<% } %>
-					<label class="mt-2">
-						<input type="text" name="signup" class="form-control" placeholder="Sign Up" required="" maxlength="32" autocomplete="off">
+					<label>
+						<input type="text" name="signup" placeholder="Sign Up" required="" maxlength="32" autocomplete="off">
 					</label>
-					<label class="mt-2">
-						<input type="password" name="password" class="form-control" required="" placeholder="Password" minlength="8" autocomplete="off">
+					<label>
+						<input type="password" name="password" required="" placeholder="Password" minlength="8" autocomplete="off">
 					</label>
-					<button class="btn btn-primary mt-2">Sign up</button>
-					<a class="btn btn-secondary mt-2" href="login">login</a>
+					<button>Sign up</button>
+					<a href="login">login</a>
 				</form>
 			</div>
 		</section>

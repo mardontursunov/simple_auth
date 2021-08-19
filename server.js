@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const ejs = require('ejs')
+const cookieParser = require('cookie-parser')
 const { generateHash, confirmHash } = require('./modules/bcrypt.js')
 require('dotenv').config()
 
@@ -10,6 +11,7 @@ app.use( express.json())
 app.use( express.urlencoded({extended: true}))
 app.use( express.static('./public'))
 app.use( express.static('./node_modules/bootstrap/dist'))
+app.use( cookieParser())
 app.set('view engine', 'ejs')
 
 
@@ -17,9 +19,11 @@ app.listen(PORT, () => console.log("Server is running on localhost:" + PORT))
 
 let data = []
 
+
 app.get('/', (req, res) => {
+	console.log(req.cookies)
 	res.render('index', {
-		data: ""
+		data: ''
 	})
 })
 
@@ -30,15 +34,14 @@ app.get('/login', (req, res) => {
 })
 app.post('/login', async (req, res) => {
 	try {
-		console.log("Data", data)
 		let { login, password } = req.body
 		if(login && password) {
 			login = login.toLowerCase()
 			let user = await data.find(x => x.signup === login)
 			if(!user) throw new Error('User not found!')
-				let isTrue = await confirmHash(password, user.password)
+			let isTrue = await confirmHash(password, user.password)
 			if(isTrue) {
-				res.redirect('/')
+				res.cookie('login', login).cookie('password', user.password).redirect('/')
 			} else {
 				throw new Error('The password is incorrect!')
 			}

@@ -3,26 +3,25 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>Login</title>
 	<link rel="stylesheet" href="./css/style.css">
-	<link rel="stylesheet" href="./css/bootstrap.min.css">
 </head>
 <body>
-	<section class="login-section vh-100 d-flex align-items-center justify-content-center">
-		<div class="container vh-100 d-flex justify-content-center align-items-center">
-			<form action="/login" class="d-flex flex-column" method="POST"  >
+	<section>
+		<div >
+			<form action="/login"  method="POST"  >
 				<h2>Login</h2> 
 				<% if(error.length){%>
-					<div class="alert alert-danger"><%= error %></div>
+					<div><%= error %></div>
 				<% } %>
-				<label class="mt-2 border border-primary rounded">
-					<input type="text" name="login" class="form-control" placeholder="Login" required="" maxlength="32">
+				<label>
+					<input type="text" name="login" placeholder="Login" required="" maxlength="32">
 				</label>
-				<label class="mt-2 border border-primary rounded">
-					<input type="password" name="password" class="form-control" required="" placeholder="Password" minlength="8">
+				<label>
+					<input type="password" name="password" required="" placeholder="Password" minlength="8">
 				</label>
-				<button class="btn btn-primary mt-2">Login</button>
-				<a class="btn btn-secondary mt-2" href="signup">sign up</a>
+				<button>Login</button>
+				<a href="signup">sign up</a>
 			</form>
 		</div>
 	</section>
